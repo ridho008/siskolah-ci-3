@@ -20,6 +20,9 @@
                     <a href="<?= base_url('admin/mapel'); ?>"><i class="fa fa-table fa-fw"></i> Mata Pelajaran</a>
                 </li>
                 <li>
+                    <a href="<?= base_url('admin/guru'); ?>"><i class="fa fa-users fa-fw"></i> Guru</a>
+                </li>
+                <li>
                     <a href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
                 
