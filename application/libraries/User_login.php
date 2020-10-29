@@ -25,7 +25,7 @@ class User_login {
 			$this->ci->session->set_userdata('nama_user', $nama_user);
 			$this->ci->session->set_userdata('level', $level);
 
-			redirect('admin/admin');
+			redirect('admin/dashboard');
 		} else {
 			// jika password salah
 			$this->ci->session->set_flashdata('pesan', 'Password Salah!');

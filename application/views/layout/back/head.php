@@ -21,6 +21,12 @@
         <!-- Custom Fonts -->
         <link href="<?= base_url('assets/back'); ?>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+        <!-- DataTables CSS -->
+        <link href="<?= base_url('assets/back'); ?>/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+        <!-- DataTables Responsive CSS -->
+        <link href="<?= base_url('assets/back'); ?>/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

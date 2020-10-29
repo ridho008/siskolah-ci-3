@@ -13,5 +13,17 @@
         <!-- Custom Theme JavaScript -->
         <script src="<?= base_url('assets/back'); ?>/js/startmin.js"></script>
 
+        <!-- DataTables JavaScript -->
+        <script src="<?= base_url('assets/back'); ?>/js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url('assets/back'); ?>/js/dataTables/dataTables.bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
+
     </body>
 </html>
