@@ -56,7 +56,7 @@
                                         <label for="foto">Foto</label><br>
                                         <img src="<?= base_url('assets/back/img/siswa/' . $siswa->foto_siswa); ?>" width="100px">
                                         <input type="file" name="foto" id="foto" class="form-control-file">
-                                        <input type="hidden" name="fotoSiswaLama" class="form-control-file">
+                                        <input type="hidden" name="fotoSiswaLama" class="form-control-file" value="<?= $siswa->foto_siswa; ?>">
                                     </div>
                             	</div>
                             </div>

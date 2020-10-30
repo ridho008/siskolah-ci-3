@@ -26,6 +26,9 @@
                     <a href="<?= base_url('admin/siswa'); ?>"><i class="fa fa-users fa-fw"></i> Siswa</a>
                 </li>
                 <li>
+                    <a href="<?= base_url('admin/pengumuman'); ?>"><i class="fa fa-users fa-fw"></i> Pengumuman</a>
+                </li>
+                <li>
                     <a href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
                 
