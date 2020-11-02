@@ -66,4 +66,18 @@ class Home extends CI_Controller {
 
 		$this->load->view('layout/front/wrapper', $data);
 	}
+
+
+	public function guru()
+	{
+		$this->load->model('Guru_m');
+		$guru = $this->Guru_m->get_join('guru', 'mapel')->result();
+		$data = [
+			'title' => 'Guru',
+			'isi' => 'home/guru',
+			'guru' => $guru
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
 }

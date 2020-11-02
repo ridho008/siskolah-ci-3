@@ -7,7 +7,7 @@
 					<div class="breadcrumbs">
 						<ul>
 							<li><a href="<?= base_url(); ?>">Home</a></li>
-							<li>Download</li>
+							<li>Guru</li>
 						</ul>
 					</div>
 				</div>
@@ -26,30 +26,45 @@
 	<div class="contact_info_container">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg">
-					<h2>Download Area</h2>
-					<div class="table-responsive">
-						<table class="table table-bordered text-center">
-							<thead>
-								<tr>
-									<th>No</th>
-									<th>Keterangan</th>
-									<th>Download</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($file as $f) : ?>
-                                    <tr>
-                                    	<td><?= ++$start; ?></td>
-                                    	<td><?= $f->nama_file; ?></td>
-                                    	<td><a href="<?= base_url('assets/back/file/' . $f->file); ?>" class="btn btn-info btn-sm">Download</a></td>
-                                    </tr>
+				<!-- Team -->
+					<div class="team">
+						<div class="team_background parallax-window" data-parallax="scroll" data-image-src="images/team_background.jpg" data-speed="0.8"></div>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="section_title_container text-center">
+										<h2 class="section_title">The Best Tutors in Town</h2>
+										<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+									</div>
+								</div>
+							</div>
+							<div class="row team_row">
+								
+								<!-- Team Item -->
+								<?php foreach($guru as $g) : ?>
+								<div class="col-lg-3 col-md-6 team_col">
+									<div class="team_item">
+										<div class="team_image"><img src="<?= base_url('assets/back/img/guru/' . $g->foto_guru); ?>" alt=""></div>
+										<div class="team_body">
+											<div class="team_title"><a href="#"><?= $g->nama_guru . ' / ' . $g->pendidikan; ?></a></div>
+											<div class="team_subtitle"><?= $g->nama_mapel; ?></div>
+											<div class="social_list">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
 								<?php endforeach; ?>
-							</tbody>
-						</table>
+
+								
+
+							</div>
+						</div>
 					</div>
-					<?= $this->pagination->create_links(); ?>
-				</div>
 			</div>
 		</div>
 	</div>
