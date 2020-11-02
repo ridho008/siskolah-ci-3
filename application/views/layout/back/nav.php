@@ -17,7 +17,7 @@
                 </li>
                 
                 <li>
-                    <a href="<?= base_url('admin/mapel'); ?>"><i class="fa fa-table fa-fw"></i> Mata Pelajaran</a>
+                    <a href="<?= base_url('admin/mapel'); ?>"><i class="fa fa-leanpub fa-fw"></i> Mata Pelajaran</a>
                 </li>
                 <li>
                     <a href="<?= base_url('admin/guru'); ?>"><i class="fa fa-users fa-fw"></i> Guru</a>
@@ -26,7 +26,16 @@
                     <a href="<?= base_url('admin/siswa'); ?>"><i class="fa fa-users fa-fw"></i> Siswa</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/pengumuman'); ?>"><i class="fa fa-users fa-fw"></i> Pengumuman</a>
+                    <a href="<?= base_url('admin/pengumuman'); ?>"><i class="fa fa-bullhorn fa-fw"></i> Pengumuman</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('admin/berita'); ?>"><i class="fa fa-newspaper-o fa-fw"></i> Berita</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('admin/galeri'); ?>"><i class="fa fa-image fa-fw"></i> Galeri</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('admin/download'); ?>"><i class="fa fa-image fa-fw"></i> Download</a>
                 </li>
                 <li>
                     <a href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

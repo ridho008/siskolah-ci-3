@@ -119,5 +119,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="<?= base_url('assets/front/'); ?>plugins/easing/easing.js"></script>
 <script src="<?= base_url('assets/front/'); ?>plugins/parallax-js-master/parallax.min.js"></script>
 <script src="<?= base_url('assets/front/'); ?>js/custom.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="<?= base_url('assets/front/'); ?>plugins/marker_with_label/marker_with_label.js"></script>
+<script src="<?= base_url('assets/front/'); ?>js/contact.js"></script>
 </body>
 </html>

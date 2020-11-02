@@ -27,7 +27,7 @@
       </li>
 									<li><a href="about.html">Tentang</a></li>
 									<li><a href="courses.html">Berita</a></li>
-									<li><a href="blog.html">Download</a></li>
+									<li><a href="<?= base_url('home/downloads'); ?>">Download</a></li>
 								</ul>
 								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
