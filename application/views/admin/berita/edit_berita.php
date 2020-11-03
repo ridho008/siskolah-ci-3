@@ -33,7 +33,7 @@
                                 <input type="hidden" name="fotoBeritaLama" id="fotoBeritaLama" value="<?= $berita->foto_berita; ?>" class="form-control-file">
                             </div>
                             <div class="form-group">
-                            	<button type="submit" class="btn btn-primary">Tambah</button>
+                            	<button type="submit" class="btn btn-primary">Edit</button>
                             </div>
 						<?= form_close(); ?>
 					</div>

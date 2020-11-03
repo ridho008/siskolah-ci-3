@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 			'title' => 'Web Sekolah',
 			'isi' => 'home/index'
 		];
-		$this->load->view('layout/front/wrapper', $data);
+		$this->load->view('layout/front/wrapper_home', $data);
 	}
 
 	public function downloads()
@@ -76,6 +76,78 @@ class Home extends CI_Controller {
 			'title' => 'Guru',
 			'isi' => 'home/guru',
 			'guru' => $guru
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
+	public function berita()
+	{
+		$this->load->model('Berita_m');
+
+		// Pagination
+		$config['base_url'] = 'http://localhost/siskolah-ci-3/home/berita/p/';
+		$config['total_rows'] = $this->Berita_m->get('berita')->num_rows();
+		// var_dump($config['total_rows']); die;
+		$config['per_page'] = 2;
+
+		// Style
+		$config['full_tag_open'] = '<ul class="pagination_list">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link'] = '<i class="fa fa-angle-right"></i>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link'] = '<i class="fa fa-angle-left"></i>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</li>';
+
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $config['attributes'] = array('class' => '');
+
+		$this->pagination->initialize($config);
+
+		
+		$data['start'] = $this->uri->segment(4);
+		$start = $this->uri->segment(4);
+
+		$berita = $this->Berita_m->getAllBerita('berita', 'users', $config['per_page'], $data['start'])->result();
+
+		// berita terakhir
+		$beritaTerakhir = $this->Berita_m->latestNews('berita', 'users')->result();
+		$data = [
+			'title' => 'Berita',
+			'isi' => 'home/berita',
+			'berita' => $berita,
+			'beritaTerakhir' => $beritaTerakhir
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
+	public function detail_berita($slug)
+	{
+		$this->load->model('Berita_m');
+		$judul = str_replace('-', ' ', ucwords($slug));
+		$berita = $this->Berita_m->get_berita_detail('berita', 'users', ['slug' => $slug])->row();
+		$beritaTerakhir = $this->Berita_m->latestNews('berita', 'users')->result();
+		$data = [
+			'title' => $judul,
+			'isi' => 'home/detail_berita',
+			'berita' => $berita,
+			'beritaTerakhir' => $beritaTerakhir
 		];
 		$this->load->view('layout/front/wrapper', $data);
 	}

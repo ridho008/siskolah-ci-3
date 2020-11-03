@@ -70,7 +70,7 @@
                             	<label for="foto">Foto</label><br>
                             	<img src="<?= base_url('assets/back/img/guru/'. $guru->foto_guru); ?>" width="100px">
                             	<input type="file" name="foto" id="foto" class="form-control-file">
-                            	<input type="text" name="fotoGuruLama" class="form-control-file" value="<?= $guru->foto_guru; ?>">
+                            	<input type="hidden" name="fotoGuruLama" class="form-control-file" value="<?= $guru->foto_guru; ?>">
                             </div>
                             <div class="form-group">
                             	<button type="submit" class="btn btn-primary">Edit</button>

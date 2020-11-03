@@ -59,6 +59,7 @@ class Berita extends CI_Controller {
 			$data = [
 				'judul_berita' => html_escape(ucwords($this->input->post('judul', true))),
 				'isi_berita' => $this->input->post('isi', true),
+				'tgl_berita' => date('Y-m-d'),
 				'foto_berita' => $foto,
 				'slug' => $slug,
 				'id_user' => $this->session->userdata('id_user')
@@ -115,7 +116,8 @@ class Berita extends CI_Controller {
 			$data = [
 				'judul_berita' => html_escape(ucwords($this->input->post('judul', true))),
 				'isi_berita' => $this->input->post('isi', true),
-				'id_user' => $this->session->userdata('id_user')
+				'id_user' => $this->session->userdata('id_user'),
+				'tgl_berita' => date('Y-m-d')
 			];
 
 			$this->Berita_m->update('berita', $data, ['id_berita' => $id_berita]);

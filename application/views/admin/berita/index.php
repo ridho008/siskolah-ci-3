@@ -47,7 +47,7 @@
 	                            				<img src="<?= base_url('assets/back/img/berita/' . $b->foto_berita); ?>" width="100px">
 	                            			</td>
 	                            			<td><?= $b->judul_berita; ?></td>
-	                            			<td><?= $b->isi_berita; ?></td>
+	                            			<td><?= word_limiter($b->isi_berita, 10); ?></td>
 	                            			<td><?= date('d-m-Y', strtotime($b->tgl_berita)); ?></td>
 	                            			<td>
 	                            				<a href="<?= base_url('admin/berita/edit/' . $b->id_berita); ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil fa-fw"></i></a>

@@ -5,13 +5,13 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container">
-								<a href="#">
-									<div class="logo_text">Unic<span>at</span></div>
+								<a href="<?= base_url(); ?>">
+									<div class="logo_text">SMK MUDA<span>2</span></div>
 								</a>
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li class="active"><a href="#">Home</a></li>
+									<li class="active"><a href="<?= base_url(); ?>">Home</a></li>
 									
 									<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,21 +19,21 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Visi & Misi</a>
-          <a class="dropdown-item" href="<?= base_url('guru'); ?>">Guru</a>
+          <a class="dropdown-item<?= $this->uri->segment(1) == 'guru' ? ' active' : '' ?>" href="<?= base_url('guru'); ?>">Guru</a>
           <a class="dropdown-item" href="#">Siswa</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
 									<li><a href="about.html">Tentang</a></li>
-									<li><a href="courses.html">Berita</a></li>
-									<li><a href="<?= base_url('home/downloads'); ?>">Download</a></li>
+									<li class="<?= $this->uri->segment(2) == 'berita' ? ' active' : '' ?>"><a href="<?= base_url('home/berita'); ?>">Berita</a></li>
+									<li class="<?= $this->uri->segment(2) == 'downloads' ? ' active' : '' ?>"><a href="<?= base_url('home/downloads'); ?>">Download</a></li>
 								</ul>
 								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
 								<!-- Hamburger -->
 
-								<div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+								<!-- <div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div> -->
 								<div class="hamburger menu_mm">
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 								</div>

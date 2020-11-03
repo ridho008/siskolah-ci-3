@@ -33,8 +33,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="section_title_container text-center">
-										<h2 class="section_title">The Best Tutors in Town</h2>
-										<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+										<h2 class="section_title">Guru</h2>
 									</div>
 								</div>
 							</div>

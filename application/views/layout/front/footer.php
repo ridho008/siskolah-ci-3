@@ -122,5 +122,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="<?= base_url('assets/front/'); ?>plugins/marker_with_label/marker_with_label.js"></script>
 <script src="<?= base_url('assets/front/'); ?>js/contact.js"></script>
+<script src="<?= base_url('assets/front/'); ?>js/blog_single.js"></script>
 </body>
 </html>
