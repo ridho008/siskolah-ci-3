@@ -6,26 +6,31 @@ class Guru extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Guru_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$guru = $this->Guru_m->get_join('guru', 'mapel')->result();
 		$data = [
 			'title' => 'Guru',
 			'isi' => 'admin/guru/index',
-			'guru' => $guru
+			'guru' => $guru,
+			'setting' => $setting
 		];
 		$this->load->view('layout/back/wrapper', $data);
 	}
 
 	public function tambah()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$mapel = $this->Guru_m->get('mapel')->result();
 		$data = [
 			'title' => 'Tambah Data Guru',
 			'isi' => 'admin/guru/tambah_guru',
-			'mapel' => $mapel
+			'mapel' => $mapel,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nip', 'Nip', 'required|trim');
@@ -79,13 +84,15 @@ class Guru extends CI_Controller {
 
 	public function edit($id_guru)
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$mapel = $this->Guru_m->get('mapel')->result();
 		$guru = $this->Guru_m->get_where('guru', ['id_guru' => $id_guru])->row();
 		$data = [
 			'title' => 'Edit Data Guru',
 			'isi' => 'admin/guru/edit_guru',
 			'guru' => $guru,
-			'mapel' => $mapel
+			'mapel' => $mapel,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nip', 'Nip', 'required|trim');

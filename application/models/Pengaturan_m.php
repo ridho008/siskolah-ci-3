@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Berita_m extends CI_Model {
+class Pengaturan_m extends CI_Model {
 	public function get($table) 
 	{
 		return $this->db->get($table);
@@ -53,14 +53,6 @@ class Berita_m extends CI_Model {
 		$this->db->join("$table2", "$table2.id_user = $table1.id_user");
 		$this->db->order_by("$table1.id_berita", 'desc');
 		$this->db->limit(4);
-		return $this->db->get($table1);
-	}
-
-	public function slideBerita($table1, $table2)
-	{
-		$this->db->join("$table2", "$table2.id_user = $table1.id_user");
-		$this->db->order_by("$table1.id_berita", 'desc');
-		$this->db->limit(3);
 		return $this->db->get($table1);
 	}
 

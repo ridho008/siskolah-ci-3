@@ -2,11 +2,24 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Pengaturan_m');
+	}
+
 	public function index()
 	{
+		$this->load->model('Berita_m');
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
+		$slideBerita = $this->Berita_m->slideBerita('berita', 'users')->result();
+		$PopularBerita = $this->Berita_m->slideBerita('berita', 'users')->result();
 		$data = [
-			'title' => 'Web Sekolah',
-			'isi' => 'home/index'
+			'title' => 'Home',
+			'isi' => 'home/index',
+			'setting' => $setting,
+			'slideBerita' => $slideBerita,
+			'PopularBerita' => $PopularBerita
 		];
 		$this->load->view('layout/front/wrapper_home', $data);
 	}
@@ -56,12 +69,13 @@ class Home extends CI_Controller {
 		$start = $this->uri->segment(4);
 
 		$file = $this->Download_m->getAllDownload($config['per_page'], $data['start'])->result();
-
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Downloads',
 			'isi' => 'home/download',
 			'file' => $file,
-			'start' => $start
+			'start' => $start,
+			'setting' => $setting
 		];
 
 		$this->load->view('layout/front/wrapper', $data);
@@ -72,10 +86,12 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('Guru_m');
 		$guru = $this->Guru_m->get_join('guru', 'mapel')->result();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Guru',
 			'isi' => 'home/guru',
-			'guru' => $guru
+			'guru' => $guru,
+			'setting' => $setting
 		];
 		$this->load->view('layout/front/wrapper', $data);
 	}
@@ -128,11 +144,13 @@ class Home extends CI_Controller {
 
 		// berita terakhir
 		$beritaTerakhir = $this->Berita_m->latestNews('berita', 'users')->result();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Berita',
 			'isi' => 'home/berita',
 			'berita' => $berita,
-			'beritaTerakhir' => $beritaTerakhir
+			'beritaTerakhir' => $beritaTerakhir,
+			'setting' => $setting
 		];
 		$this->load->view('layout/front/wrapper', $data);
 	}
@@ -143,11 +161,68 @@ class Home extends CI_Controller {
 		$judul = str_replace('-', ' ', ucwords($slug));
 		$berita = $this->Berita_m->get_berita_detail('berita', 'users', ['slug' => $slug])->row();
 		$beritaTerakhir = $this->Berita_m->latestNews('berita', 'users')->result();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => $judul,
 			'isi' => 'home/detail_berita',
 			'berita' => $berita,
-			'beritaTerakhir' => $beritaTerakhir
+			'beritaTerakhir' => $beritaTerakhir,
+			'setting' => $setting
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
+	public function galeri()
+	{
+		$this->load->model('Galeri_m');
+		$galeri = $this->Galeri_m->get_join();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
+		$data = [
+			'title' => 'Galeri',
+			'isi' => 'home/galeri',
+			'galeri' => $galeri,
+			'setting' => $setting
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
+	public function detail_galeri($id)
+	{
+		$this->load->model('Galeri_m');
+		$galeri = $this->Galeri_m->getJoinGaleriFoto($id)->result();
+		$judulGaleri = $this->Galeri_m->get_where('galeri', ['id_galeri' => $id])->row();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
+		$data = [
+			'title' => 'Galeri',
+			'isi' => 'home/detail_galeri',
+			'galeri' => $galeri,
+			'judulGaleri' => $judulGaleri,
+			'setting' => $setting
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
+	public function siswa()
+	{
+		$this->load->model('Siswa_m');
+		$siswa = $this->Siswa_m->get('siswa')->result();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
+		$data = [
+			'title' => 'Siswa',
+			'isi' => 'home/siswa',
+			'siswa' => $siswa,
+			'setting' => $setting
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
+	public function profile()
+	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
+		$data = [
+			'title' => 'Profile',
+			'isi' => 'home/profile',
+			'setting' => $setting
 		];
 		$this->load->view('layout/front/wrapper', $data);
 	}

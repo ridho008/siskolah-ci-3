@@ -6,24 +6,29 @@ class Siswa extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Siswa_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$siswa = $this->Siswa_m->get('siswa')->result();
 		$data = [
 			'title' => 'Siswa',
 			'isi' => 'admin/siswa/index',
-			'siswa' => $siswa
+			'siswa' => $siswa,
+			'setting' => $setting
 		];
 		$this->load->view('layout/back/wrapper', $data);
 	}
 
 	public function tambah()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Tambah Data Siswa',
-			'isi' => 'admin/siswa/tambah_siswa'
+			'isi' => 'admin/siswa/tambah_siswa',
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nis', 'Nis', 'required|trim');
@@ -75,11 +80,13 @@ class Siswa extends CI_Controller {
 
 	public function edit($id_siswa)
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$siswa = $this->Siswa_m->get_where('siswa', ['id_siswa' => $id_siswa])->row();
 		$data = [
 			'title' => 'Edit Data Guru',
 			'isi' => 'admin/siswa/edit_siswa',
-			'siswa' => $siswa
+			'siswa' => $siswa,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nis', 'Nis', 'required|trim');

@@ -6,24 +6,29 @@ class Galeri extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Galeri_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$galeri = $this->Galeri_m->get_join();
 		$data = [
 			'title' => 'Galeri',
 			'isi' => 'admin/galeri/index',
-			'galeri' => $galeri
+			'galeri' => $galeri,
+			'setting' => $setting
 		];
 		$this->load->view('layout/back/wrapper', $data);
 	}
 
 	public function tambah()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Tambah Data Galeri',
-			'isi' => 'admin/galeri/tambah_galeri'
+			'isi' => 'admin/galeri/tambah_galeri',
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nama', 'Nama Galeri', 'required|trim');
@@ -67,11 +72,13 @@ class Galeri extends CI_Controller {
 
 	public function edit($id_galeri)
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$galeri = $this->Galeri_m->get_where('galeri', ['id_galeri' => $id_galeri])->row();
 		$data = [
 			'title' => 'Edit Data Galeri',
 			'isi' => 'admin/galeri/edit_galeri',
-			'galeri' => $galeri
+			'galeri' => $galeri,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nama', 'Nama Galeri', 'required|trim');
@@ -130,11 +137,13 @@ class Galeri extends CI_Controller {
 	{
 		$galeri = $this->Galeri_m->get_where('galeri', ['id_galeri' => $id_galeri])->row();
 		$foto = $this->Galeri_m->get_where('foto', ['id_galeri' => $id_galeri])->result();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Tambah Foto Galeri ' . $galeri->nama_galeri,
 			'isi' => 'admin/galeri/tambah_foto_galeri',
 			'galeri' => $galeri,
-			'foto' => $foto
+			'foto' => $foto,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('keterangan', 'Keterangan Foto', 'required|trim');

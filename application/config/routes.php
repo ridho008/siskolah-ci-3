@@ -54,9 +54,15 @@ $route['default_controller'] = 'home';
 
 // $route['downloads/(:any)/(:num)'] = 'home/downloads/$1/$2';
 $route['guru'] = 'home/guru';
+$route['galeri'] = 'home/galeri';
+$route['foto/(:num)'] = 'home/detail_galeri/$1';
 // $route['berita'] = 'home/berita';
 // $route['berita/p/(:num)'] = 'home/berita';
 $route['berita/(:any)'] = 'home/detail_berita/$1';
+
+$route['siswa'] = 'home/siswa';
+
+$route['profile'] = 'home/profile';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -18,16 +18,16 @@
           Sekolah
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Visi & Misi</a>
           <a class="dropdown-item<?= $this->uri->segment(1) == 'guru' ? ' active' : '' ?>" href="<?= base_url('guru'); ?>">Guru</a>
-          <a class="dropdown-item" href="#">Siswa</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item<?= $this->uri->segment(1) == 'siswa' ? ' active' : '' ?>" href="<?= base_url('siswa'); ?>">Siswa</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <a class="dropdown-item" href="<?= base_url('profile'); ?>">Profile</a>
         </div>
       </li>
 									<li><a href="about.html">Tentang</a></li>
 									<li class="<?= $this->uri->segment(2) == 'berita' ? ' active' : '' ?>"><a href="<?= base_url('home/berita'); ?>">Berita</a></li>
 									<li class="<?= $this->uri->segment(2) == 'downloads' ? ' active' : '' ?>"><a href="<?= base_url('home/downloads'); ?>">Download</a></li>
+									<li class="<?= $this->uri->segment(1) == 'galeri' ? ' active' : '' ?>"><a href="<?= base_url('galeri'); ?>">Galeri</a></li>
 								</ul>
 								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 

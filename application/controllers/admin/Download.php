@@ -6,24 +6,29 @@ class Download extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Download_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$download = $this->Download_m->get('file')->result();
 		$data = [
 			'title' => 'Download',
 			'isi' => 'admin/download/index',
-			'download' => $download
+			'download' => $download,
+			'setting' => $setting
 		];
 		$this->load->view('layout/back/wrapper', $data);
 	}
 
 	public function tambah()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Tambah Data File Download',
-			'isi' => 'admin/download/tambah'
+			'isi' => 'admin/download/tambah',
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nama', 'Nama File', 'required|trim');
@@ -67,11 +72,13 @@ class Download extends CI_Controller {
 
 	public function edit($id_file)
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$download = $this->Download_m->get_where('file', ['id_file' => $id_file])->row();
 		$data = [
 			'title' => 'Edit Data File Download',
 			'isi' => 'admin/download/edit',
-			'download' => $download
+			'download' => $download,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('nama', 'Nama File', 'required|trim');

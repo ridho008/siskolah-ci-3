@@ -6,15 +6,18 @@ class Mapel extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Mapel_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$mapel = $this->Mapel_m->get('mapel')->result();
 		$data = [
 			'title' => 'Mata Pelajaran',
 			'isi' => 'admin/mapel/index',
-			'mapel' => $mapel
+			'mapel' => $mapel,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required|trim');

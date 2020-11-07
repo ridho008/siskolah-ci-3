@@ -4,7 +4,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">SMK MUDA2</a>
+                <a class="navbar-brand" href="index.html"><?= $setting->nama_sekolah; ?></a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -15,7 +15,7 @@
             </button>
 
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+                <li><a href="<?= base_url(); ?>"><i class="fa fa-home fa-fw"></i> Website</a></li>
             </ul>
 
             <ul class="nav navbar-right navbar-top-links">

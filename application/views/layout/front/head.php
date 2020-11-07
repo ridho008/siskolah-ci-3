@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title><?= $title; ?> - SMK Muhammadiyah 2</title>
+<title><?= $title . ' - ' . $setting->nama_sekolah; ?></title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Unicat project">
@@ -22,4 +22,10 @@
 
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/blog_single.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/blog_single_responsive.css">
+
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/about.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/about_responsive.css">
+
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/about.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/about_responsive.css">
 </head>

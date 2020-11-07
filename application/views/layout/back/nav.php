@@ -35,7 +35,10 @@
                     <a href="<?= base_url('admin/galeri'); ?>"><i class="fa fa-image fa-fw"></i> Galeri</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/download'); ?>"><i class="fa fa-image fa-fw"></i> Download</a>
+                    <a href="<?= base_url('admin/download'); ?>"><i class="fa fa-download fa-fw"></i> Download</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('admin/pengaturan'); ?>"><i class="fa fa-gear fa-fw"></i> Pengaturan</a>
                 </li>
                 <li>
                     <a href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

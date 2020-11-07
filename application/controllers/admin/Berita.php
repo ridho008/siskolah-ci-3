@@ -6,24 +6,29 @@ class Berita extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Berita_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$berita = $this->Berita_m->get('berita')->result();
 		$data = [
 			'title' => 'Berita',
 			'isi' => 'admin/berita/index',
-			'berita' => $berita
+			'berita' => $berita,
+			'setting' => $setting
 		];
 		$this->load->view('layout/back/wrapper', $data);
 	}
 
 	public function tambah()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Tambah Data Berita',
-			'isi' => 'admin/berita/tambah_berita'
+			'isi' => 'admin/berita/tambah_berita',
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');
@@ -73,11 +78,13 @@ class Berita extends CI_Controller {
 
 	public function edit($id_berita)
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$berita = $this->Berita_m->get_where('berita', ['id_berita' => $id_berita])->row();
 		$data = [
 			'title' => 'Edit Data Berita',
 			'isi' => 'admin/berita/edit_berita',
-			'berita' => $berita
+			'berita' => $berita,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');

@@ -6,24 +6,29 @@ class Pengumuman extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Pengumuman_m');
+		$this->load->model('Pengaturan_m');
 	}
 
 	public function index()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$pengumuman = $this->Pengumuman_m->get('pengumuman')->result();
 		$data = [
 			'title' => 'Pengumuman',
 			'isi' => 'admin/pengumuman/index',
-			'pengumuman' => $pengumuman
+			'pengumuman' => $pengumuman,
+			'setting' => $setting
 		];
 		$this->load->view('layout/back/wrapper', $data);
 	}
 
 	public function tambah()
 	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Tambah Data Pengumuman',
-			'isi' => 'admin/pengumuman/tambah_pengumuman'
+			'isi' => 'admin/pengumuman/tambah_pengumuman',
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('judul', 'Judul Pengumuman', 'required|trim');
@@ -46,10 +51,12 @@ class Pengumuman extends CI_Controller {
 	public function edit($id_pengumuman)
 	{
 		$pengumuman = $this->Pengumuman_m->get_where('pengumuman', ['id_pengu' => $id_pengumuman])->row();
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
 		$data = [
 			'title' => 'Edit Data Pengumuman',
 			'isi' => 'admin/pengumuman/edit_pengumuman',
-			'pengumuman' => $pengumuman
+			'pengumuman' => $pengumuman,
+			'setting' => $setting
 		];
 
 		$this->form_validation->set_rules('judul', 'Judul Pengumuman', 'required|trim');

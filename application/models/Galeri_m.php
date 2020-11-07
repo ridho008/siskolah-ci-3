@@ -32,4 +32,14 @@ class Galeri_m extends CI_Model {
 		$this->db->where($where);
 		$this->db->update($table, $data);
 	}
+
+	public function getJoinGaleriFoto($id) 
+	{
+		$this->db->select('*');
+		$this->db->from('galeri');
+		$this->db->join('foto', 'foto.id_galeri = galeri.id_galeri');
+		$this->db->where('galeri.id_galeri', $id);
+		return $this->db->get();
+	}
+
 }
