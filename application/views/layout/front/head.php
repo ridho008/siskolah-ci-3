@@ -28,4 +28,8 @@
 
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/about.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/front/'); ?>styles/about_responsive.css">
+
+<!-- Leaflet Maps -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>

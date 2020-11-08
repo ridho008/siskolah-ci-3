@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
 	public function index()
 	{
+		$this->cekHalLogin();
 		$data = [
 			'title' => 'Halaman Login'
 		];
@@ -18,6 +19,13 @@ class Auth extends CI_Controller {
 			// user_login diambil dari library buatan sendiri
 			$this->user_login->login($username, $password);
 		}
+	}
+
+	public function cekHalLogin()
+	{
+		if($this->session->userdata('username') != null) {
+			redirect('admin/dashboard');
+		} 
 	}
 
 	public function logout()

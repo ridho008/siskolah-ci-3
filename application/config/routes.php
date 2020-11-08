@@ -64,5 +64,7 @@ $route['siswa'] = 'home/siswa';
 
 $route['profile'] = 'home/profile';
 
+$route['tentang'] = 'home/tentang';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

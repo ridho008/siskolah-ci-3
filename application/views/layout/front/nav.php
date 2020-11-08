@@ -11,7 +11,7 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li class="active"><a href="<?= base_url(); ?>">Home</a></li>
+									<li class="<?= $this->uri->segment(1) != 'tentang' || $this->uri->segment(2) != 'berita' ? ' active' : '' ?>"><a href="<?= base_url(); ?>">Home</a></li>
 									
 									<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,7 +24,7 @@
           <a class="dropdown-item" href="<?= base_url('profile'); ?>">Profile</a>
         </div>
       </li>
-									<li><a href="about.html">Tentang</a></li>
+									<li class="<?= $this->uri->segment(1) == 'tentang' ? ' active' : '' ?>"><a href="<?= base_url('tentang'); ?>">Tentang</a></li>
 									<li class="<?= $this->uri->segment(2) == 'berita' ? ' active' : '' ?>"><a href="<?= base_url('home/berita'); ?>">Berita</a></li>
 									<li class="<?= $this->uri->segment(2) == 'downloads' ? ' active' : '' ?>"><a href="<?= base_url('home/downloads'); ?>">Download</a></li>
 									<li class="<?= $this->uri->segment(1) == 'galeri' ? ' active' : '' ?>"><a href="<?= base_url('galeri'); ?>">Galeri</a></li>

@@ -38,7 +38,7 @@ class User_login {
 	public function cek_login()
 	{
 		if($this->ci->session->userdata('username') == null) {
-			$this->ci->session->set_flashdata('pesan', 'Anda Belum Logout!');
+			$this->ci->session->set_flashdata('pesan', 'Anda Belum Login!');
 			redirect('auth');
 		}
 	}

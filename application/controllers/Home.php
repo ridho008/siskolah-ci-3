@@ -227,4 +227,15 @@ class Home extends CI_Controller {
 		$this->load->view('layout/front/wrapper', $data);
 	}
 
+	public function tentang()
+	{
+		$setting = $this->Pengaturan_m->get('pengaturan')->row();
+		$data = [
+			'title' => 'Tentang',
+			'isi' => 'home/tentang',
+			'setting' => $setting
+		];
+		$this->load->view('layout/front/wrapper', $data);
+	}
+
 }
